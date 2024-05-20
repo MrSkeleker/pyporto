@@ -13,7 +13,5 @@ pyjokes==0.6.0
 requests==2.31.0
 soupsieve==2.5
 sympy==1.12
-torchaudio==2.2.1+cu118
-torchvision==0.17.1+cu118
 typing_extensions==4.8.0
 urllib3==2.2.1
