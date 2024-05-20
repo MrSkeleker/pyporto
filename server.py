@@ -1,18 +1,24 @@
 from flask import Flask, render_template, request, redirect
 import csv
 import os
-app = Flask(__name__)
 
 database_filename = 'database.csv'
 
-if not os.path.exists(database_filename):
-    # Create the file if it doesn't exist
-    with open(database_filename, 'w', newline='') as file:
-        # Create a CSV writer object
-        writer = csv.writer(file)
 
-        # Write the headers to the CSV file
-        writer.writerow(['email', 'subject', 'message'])
+def init_app():
+    app = Flask(__name__)
+    if not os.path.exists(database_filename):
+        # Create the file if it doesn't exist
+        with open(database_filename, 'w', newline='') as file:
+            # Create a CSV writer object
+            writer = csv.writer(file)
+
+            # Write the headers to the CSV file
+            writer.writerow(['email', 'subject', 'message'])
+    return app
+
+
+app = init_app()
 
 
 @app.route('/')
